@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HUD
   playerHealth: {fileID: 241483067}
-  coinWallet: {fileID: 973010821}
+  coinWallet: {fileID: 2969039726354609869}
   livesText: {fileID: 1135978625}
   livesPrefix: 'Lives: '
   coinsText: {fileID: 500482710}
@@ -671,7 +671,6 @@ Transform:
   - {fileID: 619394802}
   - {fileID: 289265921}
   - {fileID: 1534163031}
-  - {fileID: 973010822}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &227000018
@@ -1609,50 +1608,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 71797528981537093, guid: 7bdb3a03414b6324e9430c673f8cff3f, type: 3}
   m_PrefabInstance: {fileID: 924447950}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &973010820
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 973010822}
-  - component: {fileID: 973010821}
-  m_Layer: 0
-  m_Name: CoinsWallet
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &973010821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973010820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e79a3e7b3710d2c4dacf030aaf78971c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CoinWallet
---- !u!4 &973010822
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973010820}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.07934, y: -24.47502, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 133183363}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1099026214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1918,7 +1873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6135842748642453455, guid: 811f08dd460d7314c91f4e2db5fd21fa, type: 3}
       propertyPath: healthPoints
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6998236765671597965, guid: 811f08dd460d7314c91f4e2db5fd21fa, type: 3}
       propertyPath: m_Name
@@ -47563,6 +47518,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 133997dbd80aaae4e9ac8cfa6f380039, type: 3}
+--- !u!114 &2969039726354609869 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5903339143505468201, guid: 133997dbd80aaae4e9ac8cfa6f380039, type: 3}
+  m_PrefabInstance: {fileID: 2969039726354609868}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e79a3e7b3710d2c4dacf030aaf78971c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoinWallet
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

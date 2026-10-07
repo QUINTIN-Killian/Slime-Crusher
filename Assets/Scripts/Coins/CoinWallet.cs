@@ -7,22 +7,12 @@ public class CoinWallet : MonoBehaviour
 
     private int coins = 0;
 
-    private void OnEnable()
-    {
-        CoinPickup.Collected += AddCoins;
-    }
-
-    private void OnDisable()
-    {
-        CoinPickup.Collected -= AddCoins;
-    }
-
     private void Start()
     {
         CoinsChanged?.Invoke(coins);
     }
 
-    private void AddCoins(int amount)
+    public void AddCoins(int amount)
     {
         coins += amount;
         CoinsChanged?.Invoke(coins);

@@ -1,24 +1,24 @@
 using UnityEngine;
-using System;
 
 public class CoinPickup : MonoBehaviour
 {
-    public static event Action<int> Collected;
-
     [SerializeField] private int value = 1;
     [SerializeField] private AudioClip pickupSound;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && other.isTrigger)
-        {
-            if (pickupSound != null)
-            {
-                AudioSource.PlayClipAtPoint(pickupSound, transform.position, 1.0f);
-            }
+        if (!other.CompareTag("Player") || !other.isTrigger) return;
 
-            Collected?.Invoke(value);
-            Destroy(gameObject);
+        CoinWallet wallet = other.GetComponentInParent<CoinWallet>();
+
+        if (wallet == null) return;
+
+        if (pickupSound != null)
+        {
+            AudioSource.PlayClipAtPoint(pickupSound, transform.position, 1.0f);
         }
+
+        wallet.AddCoins(value);
+        Destroy(gameObject);
     }
 }
