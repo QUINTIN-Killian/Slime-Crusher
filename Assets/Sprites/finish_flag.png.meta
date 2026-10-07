@@ -1,22 +1,31 @@
 fileFormatVersion: 2
-guid: cbbdf9c9020290f48841371d8aebe5ab
+guid: ac4444b826f2a60429c3cdc59adc396c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6494656711642010645
-    second: flag animation_0
+      213: -5208371701693498273
+    second: finish_flag_0
   - first:
-      213: -4341209307699571989
-    second: flag animation_1
+      213: 7310884673956497011
+    second: finish_flag_1
   - first:
-      213: 4625237377173308275
-    second: flag animation_2
+      213: -1112742975104920924
+    second: finish_flag_2
   - first:
-      213: -455622095734552585
-    second: flag animation_3
+      213: -2888794029894289416
+    second: finish_flag_3
   - first:
-      213: 6712714840332784938
-    second: flag animation_4
+      213: -3536264278571305418
+    second: finish_flag_4
+  - first:
+      213: -4704182690492482922
+    second: finish_flag_5
+  - first:
+      213: -6262568782392713739
+    second: finish_flag_6
+  - first:
+      213: -6182691754347859274
+    second: finish_flag_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -63,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 60
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -127,111 +136,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: flag_0
+      name: finish_flag_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 60
-        height: 60
+        width: 32
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7b4099aec342c67469cd08ab824d63f1
-      internalID: 1251551569
+      spriteID: f5cbc5e488528b7b0800000000000000
+      internalID: -5208371701693498273
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flag_1
+      name: finish_flag_1
       rect:
         serializedVersion: 2
-        x: 60
+        x: 32
         y: 0
-        width: 60
-        height: 60
+        width: 32
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5c284da961976ac46909243a54f704b6
-      internalID: 1814185564
+      spriteID: 376460150ea757560800000000000000
+      internalID: 7310884673956497011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flag_2
+      name: finish_flag_2
       rect:
         serializedVersion: 2
-        x: 120
+        x: 64
         y: 0
-        width: 60
-        height: 60
+        width: 32
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2795065a2bad0774aa3525714737bdae
-      internalID: 2135046526
+      spriteID: 4a25f82e82ebe80f0800000000000000
+      internalID: -1112742975104920924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flag_3
+      name: finish_flag_3
       rect:
         serializedVersion: 2
-        x: 180
+        x: 96
         y: 0
-        width: 60
-        height: 60
+        width: 32
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 4a58471c47aaa8141b282fc1241bda58
-      internalID: -312317153
+      spriteID: 8f7b1e2a221f8e7d0800000000000000
+      internalID: -2888794029894289416
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flag_4
+      name: finish_flag_4
       rect:
         serializedVersion: 2
-        x: 240
+        x: 128
         y: 0
-        width: 60
-        height: 60
+        width: 32
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b0323de7336264645bbb4895386231fa
-      internalID: 1110052966
+      spriteID: 636bad3ef5aaceec0800000000000000
+      internalID: -3536264278571305418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: finish_flag_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69a77ae44c267beb0800000000000000
+      internalID: -4704182690492482922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: finish_flag_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fd18087fd2e619a0800000000000000
+      internalID: -6262568782392713739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: finish_flag_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b2fb525b9aa23aa0800000000000000
+      internalID: -6182691754347859274
       vertices: []
       indices: 
       edges: []
@@ -240,7 +315,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 6224355566cea864e8ccc350308abfe7
+    spriteID: eb28e67e91e1c214fa88b4e0355f5281
     internalID: 0
     vertices: []
     indices: 
@@ -250,13 +325,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":60.0,"y":60.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":48.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      flag_0: 1251551569
-      flag_1: 1814185564
-      flag_2: 2135046526
-      flag_3: -312317153
-      flag_4: 1110052966
+      finish_flag_0: -5208371701693498273
+      finish_flag_1: 7310884673956497011
+      finish_flag_2: -1112742975104920924
+      finish_flag_3: -2888794029894289416
+      finish_flag_4: -3536264278571305418
+      finish_flag_5: -4704182690492482922
+      finish_flag_6: -6262568782392713739
+      finish_flag_7: -6182691754347859274
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
