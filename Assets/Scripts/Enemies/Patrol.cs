@@ -6,6 +6,8 @@ public class Patrol : MonoBehaviour
 {
     [SerializeField] private float speed = 2f;
     [SerializeField] private float wallCheckDistance = 0.1f;
+    [SerializeField] private float groundCheckDistance = 0.2f;
+    [SerializeField] private float ledgeCheckOffset = 0.2f;
     [SerializeField] private LayerMask nonBlockingLayers;
 
     private Vector2 moveDirection = Vector2.left;
@@ -28,7 +30,7 @@ public class Patrol : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (IsBlocked())
+        if (IsBlocked() || (IsGrounded() && IsLedgeAhead()))
         {
             FlipDirection();
         }
@@ -40,7 +42,29 @@ public class Patrol : MonoBehaviour
     {
         Bounds bounds = bodyCollider.bounds;
         Vector2 origin = new(bounds.center.x + moveDirection.x * bounds.extents.x, bounds.center.y);
-        int count = Physics2D.Raycast(origin, moveDirection, obstaclesFilter, hits, wallCheckDistance);
+
+        return HitsObstacle(origin, moveDirection, wallCheckDistance);
+    }
+
+    private bool IsGrounded()
+    {
+        Bounds bounds = bodyCollider.bounds;
+        Vector2 origin = new(bounds.center.x, bounds.center.y);
+
+        return HitsObstacle(origin, Vector2.down, bounds.extents.y + groundCheckDistance);
+    }
+
+    private bool IsLedgeAhead()
+    {
+        Bounds bounds = bodyCollider.bounds;
+        Vector2 origin = new(bounds.center.x + moveDirection.x * (bounds.extents.x + ledgeCheckOffset), bounds.center.y);
+
+        return !HitsObstacle(origin, Vector2.down, bounds.extents.y + groundCheckDistance);
+    }
+
+    private bool HitsObstacle(Vector2 origin, Vector2 direction, float distance)
+    {
+        int count = Physics2D.Raycast(origin, direction, obstaclesFilter, hits, distance);
 
         for (int i = 0; i < count; i++)
         {

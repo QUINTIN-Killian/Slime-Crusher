@@ -249,7 +249,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b79f17a31ee091342b1bec1c907ee85e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -299,6 +299,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   speed: 2
   wallCheckDistance: 0.1
+  groundCheckDistance: 1
+  ledgeCheckOffset: 0.1
   nonBlockingLayers:
     serializedVersion: 2
     m_Bits: 128
