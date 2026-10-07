@@ -1916,6 +1916,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6135842748642453455, guid: 811f08dd460d7314c91f4e2db5fd21fa, type: 3}
+      propertyPath: healthPoints
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6998236765671597965, guid: 811f08dd460d7314c91f4e2db5fd21fa, type: 3}
       propertyPath: m_Name
       value: Green Slime
