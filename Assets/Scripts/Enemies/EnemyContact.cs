@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyContact : MonoBehaviour
 {
     [SerializeField] private float bounceForce = 8f;
+
     private BoxCollider2D hitbox;
     private EnemyHealth enemyHealth;
 

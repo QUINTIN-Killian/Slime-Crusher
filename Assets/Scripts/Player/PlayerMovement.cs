@@ -7,11 +7,13 @@ public class PlayerMovement : MonoBehaviour
 {
     private static readonly int SpeedHash = Animator.StringToHash("Speed");
     private static readonly int JumpHash = Animator.StringToHash("Jump");
+
     [SerializeField] private GameManager gameManager;
     [SerializeField] private float speed = 7.0f;
     [SerializeField] private float jumpForce = 10.0f;
     [SerializeField] private LayerMask groundLayers;
     [SerializeField] private AudioClip jumpSound;
+
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer spriteRenderer;

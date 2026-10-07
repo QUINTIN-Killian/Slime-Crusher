@@ -2,7 +2,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
-
 public class Patrol : MonoBehaviour
 {
     [SerializeField] private float speed = 2f;

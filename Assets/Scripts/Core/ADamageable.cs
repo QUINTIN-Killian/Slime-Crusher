@@ -5,6 +5,7 @@ public abstract class ADamageable : MonoBehaviour
     [SerializeField] protected int healthPoints = 1;
     [SerializeField] protected AudioClip hitSound = null;
     [SerializeField] protected AudioClip deathSound = null;
+
     public bool IsDead { get; private set; } = false;
 
     public void TakeDamage(int amount = 1)

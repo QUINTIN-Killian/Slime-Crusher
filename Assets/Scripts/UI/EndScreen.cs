@@ -5,6 +5,7 @@ public class EndScreen : MonoBehaviour
 {
     private const string WinMessage = "Level Complete!";
     private const string LoseMessage = "You Lost!";
+
     [SerializeField] private GameManager gameManager;
     [SerializeField] private TMP_Text endText;
 

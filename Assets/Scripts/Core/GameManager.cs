@@ -6,7 +6,9 @@ public enum GameState { Playing, Won, Lost }
 public class GameManager : MonoBehaviour
 {
     public event Action<bool> GameEnded;
+
     private GameState state = GameState.Playing;
+
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private WinFlag winFlag;
 

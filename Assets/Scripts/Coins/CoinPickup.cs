@@ -4,6 +4,7 @@ using System;
 public class CoinPickup : MonoBehaviour
 {
     public static event Action<int> Collected;
+
     [SerializeField] private int value = 1;
     [SerializeField] private AudioClip pickupSound;
 

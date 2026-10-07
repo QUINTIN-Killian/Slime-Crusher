@@ -7,6 +7,7 @@ public class PlayerHealth : ADamageable
 {
     public event Action<int> HealthChanged;
     public event Action Died;
+
     private Animator anim;
     private static readonly int HitHash = Animator.StringToHash("Hit");
     private static readonly int DeathHash = Animator.StringToHash("Death");
