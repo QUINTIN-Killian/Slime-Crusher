@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameOverMenu : MonoBehaviour
 {
     private const string WinMessage = "Level Complete!";
-    private const string LoseMessage = "You Lost!";
+    private const string LoseMessage = "Game Over!";
 
     [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject gameOverMenu;
