@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 8486850174496611285}
   - component: {fileID: 483564281628074805}
   - component: {fileID: 6135842748642453455}
+  - component: {fileID: 340483501757573467}
   m_Layer: 0
   m_Name: Green Slime
   m_TagString: Enemy
@@ -319,3 +320,15 @@ MonoBehaviour:
   healthPoints: 1
   hitSound: {fileID: 8300000, guid: ee59306476be6a24f97a7176e7a6b824, type: 3}
   deathSound: {fileID: 8300000, guid: 8a92a61f3547d8c499bf81da21b272de, type: 3}
+--- !u!114 &340483501757573467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6998236765671597965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9177d9d5420539a44b246a41d967574a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyStun

@@ -18,9 +18,17 @@ public class Iceball : AThrowable
         anim.SetTrigger(ExplodeHash);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        TryDamage(collision.collider);
+        if (other.isTrigger) return;
+
+        if (TryDamage(other))
+        {
+            IStunnable stunnable = other.gameObject.GetComponentInParent<IStunnable>();
+
+            stunnable?.Stun(stunDuration);
+        }
+
         Impact();
     }
 

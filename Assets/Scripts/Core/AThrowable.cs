@@ -9,6 +9,7 @@ public abstract class AThrowable : MonoBehaviour
     [SerializeField] protected float speed = 10.0f;
     [SerializeField] protected float lifetime = 2.0f;
     [SerializeField] protected int damage = 1;
+    [SerializeField] protected float stunDuration = 1.0f;
     [SerializeField] protected AudioClip impactSound;
 
     public event Action<AThrowable> Destroyed;
