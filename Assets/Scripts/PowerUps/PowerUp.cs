@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class FireFlowerPickUp : MonoBehaviour
+public class PowerUp : MonoBehaviour
 {
-    [SerializeField] private string pickupTag = "fire_flower";
-    [SerializeField] private string animationTrigger = "ThrowFireball";
+    [SerializeField] private string pickupTag;
+    [SerializeField] private string animationTrigger;
     [SerializeField] private AThrowable throwable;
     [SerializeField] private AudioClip pickupSound;
     [SerializeField] private AudioClip removeSound;
