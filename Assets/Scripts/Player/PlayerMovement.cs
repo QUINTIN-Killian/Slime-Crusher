@@ -3,6 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(PlayerPowerUpsHandler))]
 public class PlayerMovement : MonoBehaviour
 {
     private static readonly int SpeedHash = Animator.StringToHash("Speed");
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private float speed = 7.0f;
     [SerializeField] private float jumpForce = 10.0f;
+    [SerializeField] private float scaleMultiplier = 1.2f;
     [SerializeField] private LayerMask groundLayers;
     [SerializeField] private AudioClip jumpSound;
 
@@ -18,9 +20,12 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private SpriteRenderer spriteRenderer;
     private ContactFilter2D groundFilter;
+    private PlayerPowerUpsHandler playerPickup;
     private float horizontalInput;
     private bool jumpRequested = false;
     private bool frozen = false;
+    private Vector3 initialScale;
+    private Vector3 powerUpScale;
 
     private void OnEnable()
     {
@@ -37,16 +42,26 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        playerPickup = GetComponent<PlayerPowerUpsHandler>();
 
         groundFilter = new ContactFilter2D();
         groundFilter.SetLayerMask(groundLayers);
         groundFilter.SetNormalAngle(45f, 135f);
     }
 
+    private void Start()
+    {
+        initialScale = transform.localScale;
+        powerUpScale = initialScale * scaleMultiplier;
+    }
+
     private void Update()
     {
         ReadInputs();
         UpdateAnimations();
+
+        if (HasPowerUp() && IsInitialScale()) transform.localScale = powerUpScale;
+        else if (!HasPowerUp() && !IsInitialScale()) transform.localScale = initialScale;
     }
 
     private void FixedUpdate()
@@ -119,5 +134,15 @@ public class PlayerMovement : MonoBehaviour
     private void HandleGameEnded(bool hasWon)
     {
         SetFrozen(true);
+    }
+
+    private bool HasPowerUp()
+    {
+        return playerPickup.HasPowerUp;
+    }
+
+    private bool IsInitialScale()
+    {
+        return transform.localScale == initialScale;
     }
 }

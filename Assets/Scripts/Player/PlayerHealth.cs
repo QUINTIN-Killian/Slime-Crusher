@@ -3,12 +3,14 @@ using System;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(PlayerPowerUpsHandler))]
 public class PlayerHealth : ADamageable
 {
     public event Action<int> HealthChanged;
     public event Action Died;
 
     private Animator anim;
+    private PlayerPowerUpsHandler playerPickup;
     private static readonly int HitHash = Animator.StringToHash("Hit");
     private static readonly int DeathHash = Animator.StringToHash("Death");
     private PlayerMovement playerMovement;
@@ -17,6 +19,7 @@ public class PlayerHealth : ADamageable
     {
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
+        playerPickup = GetComponent<PlayerPowerUpsHandler>();
     }
 
     private void Start()
@@ -27,6 +30,7 @@ public class PlayerHealth : ADamageable
     protected override void OnHit()
     {
         anim.SetTrigger(HitHash);
+        playerPickup.RemovePowerUp();
     }
 
     protected override void OnHealthChanged()
