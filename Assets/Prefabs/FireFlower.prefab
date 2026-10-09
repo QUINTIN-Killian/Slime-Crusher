@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1347422520894310338}
   - component: {fileID: 2870969105313185896}
   - component: {fileID: 4135651942912025406}
+  - component: {fileID: -6152636466134357423}
   m_Layer: 0
   m_Name: FireFlower
   m_TagString: Untagged
@@ -176,5 +177,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   pickupTag: fire_flower
+  animationTrigger: ThrowFireball
+  throwable: {fileID: 0}
   pickupSound: {fileID: 8300000, guid: 6a010673a3a94f245bdb009f984f66ce, type: 3}
   removeSound: {fileID: 8300000, guid: 6a010673a3a94f245bdb009f984f66ce, type: 3}
+--- !u!114 &-6152636466134357423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2556620475622483100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1616eff18ba10294188782c3e26ac6fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Score
+  score: 50

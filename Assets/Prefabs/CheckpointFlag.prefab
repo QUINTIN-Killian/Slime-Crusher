@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7237306475297444912}
   - component: {fileID: 350649501786773646}
   - component: {fileID: 7240413385215257508}
+  - component: {fileID: 8267572048531446255}
   m_Layer: 0
   m_Name: CheckpointFlag
   m_TagString: Untagged
@@ -175,4 +176,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f8b6b7495806149a2d96c7944515d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  confettis: []
   reachSound: {fileID: 8300000, guid: 6a010673a3a94f245bdb009f984f66ce, type: 3}
+--- !u!114 &8267572048531446255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5763346028785882739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1616eff18ba10294188782c3e26ac6fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Score
+  score: 500

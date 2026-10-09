@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 
+[RequireComponent(typeof(Score))]
 public class CheckpointFlag : MonoBehaviour
 {
     public static event Action<Vector3> Reached;
@@ -9,6 +10,12 @@ public class CheckpointFlag : MonoBehaviour
     [SerializeField] private AudioClip reachSound;
 
     private bool validated = false;
+    private Score score;
+
+    private void Awake()
+    {
+        score = GetComponent<Score>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -23,6 +30,8 @@ public class CheckpointFlag : MonoBehaviour
             }
 
             foreach (Confetti confetti in confettis) confetti.Burst();
+
+            score.DeclareScore();
         }
     }
 }

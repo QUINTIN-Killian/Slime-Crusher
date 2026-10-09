@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6950827805142089573}
   - component: {fileID: 8602389163763332411}
   - component: {fileID: 9140904230593775013}
+  - component: {fileID: 9006242995464168731}
   m_Layer: 0
   m_Name: EndFlag
   m_TagString: Untagged
@@ -175,4 +176,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50e59de8eb842804a92e306b98ee1407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  confettis: []
   reachSound: {fileID: 8300000, guid: 6a010673a3a94f245bdb009f984f66ce, type: 3}
+--- !u!114 &9006242995464168731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4762830729511535656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1616eff18ba10294188782c3e26ac6fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Score
+  score: 1000

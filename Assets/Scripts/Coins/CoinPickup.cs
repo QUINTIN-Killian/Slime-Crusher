@@ -1,9 +1,17 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Score))]
 public class CoinPickup : MonoBehaviour
 {
     [SerializeField] private int value = 1;
     [SerializeField] private AudioClip pickupSound;
+
+    private Score score;
+
+    private void Awake()
+    {
+        score = GetComponent<Score>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -19,6 +27,7 @@ public class CoinPickup : MonoBehaviour
         }
 
         wallet.AddCoins(value);
+        score.DeclareScore();
         Destroy(gameObject);
     }
 }
