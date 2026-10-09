@@ -25535,7 +25535,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 101602421272837440, guid: 133997dbd80aaae4e9ac8cfa6f380039, type: 3}
       propertyPath: healthPoints
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 572844905768825996, guid: 133997dbd80aaae4e9ac8cfa6f380039, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25613,6 +25613,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireFlower
       objectReference: {fileID: 0}
+    - target: {fileID: 4135651942912025406, guid: 9b86006aa0f740d4b90bac9386260ad2, type: 3}
+      propertyPath: throwable
+      value: 
+      objectReference: {fileID: 7058284552662870210, guid: 933c848b3830903469d79d66d50d2856, type: 3}
     - target: {fileID: 4934192717065320769, guid: 9b86006aa0f740d4b90bac9386260ad2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.5

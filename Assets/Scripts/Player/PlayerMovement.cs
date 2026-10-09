@@ -22,7 +22,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 7.0f;
     [SerializeField] private float jumpForce = 10.0f;
     [SerializeField] private float scaleMultiplier = 1.2f;
-    [SerializeField] private int maxFireBalls = 2;
+    [SerializeField] private int maxThrowables = 2;
+    [SerializeField] private Vector2 throwOffset = new(0.5f, 0.0f);
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -33,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private bool frozen = false;
     private Vector3 initialScale;
     private Vector3 powerUpScale;
-    private int fireBalls = 0;
+    private int activeThrowables = 0;
 
     private void OnEnable()
     {
@@ -137,12 +138,36 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleUse()
     {
-        if (inputs.UseRequested && HasPowerUp())
+        if (inputs.UseRequested && HasPowerUp() && IsGrounded())
         {
-            anim.SetTrigger(Animator.StringToHash(playerPowerUp.AnimationTrigger));
+            if (activeThrowables < maxThrowables)
+            {
+                anim.SetTrigger(Animator.StringToHash(playerPowerUp.AnimationTrigger));
+                Throw();
+            }
         }
 
         inputs.UseRequested = false;
+    }
+
+    private void Throw()
+    {
+        if (playerPowerUp.throwObject == null || activeThrowables >= maxThrowables) return;
+
+        float facing = spriteRenderer.flipX ? -1.0f : 1.0f;
+        Vector3 spawnPosition = transform.position + new Vector3(throwOffset.x * facing, throwOffset.y, 0.0f);
+        AThrowable throwable = Instantiate(playerPowerUp.throwObject, spawnPosition, Quaternion.identity);
+        Collider2D throwableCollider = throwable.GetComponent<Collider2D>();
+
+        activeThrowables++;
+        throwable.Destroyed += HandleThrowableDestroyed;
+        throwable.Launch(facing);
+    }
+
+    private void HandleThrowableDestroyed(AThrowable throwable)
+    {
+        throwable.Destroyed -= HandleThrowableDestroyed;
+        activeThrowables--;
     }
 
     private bool IsGrounded()

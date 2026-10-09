@@ -4,6 +4,7 @@ public class FireFlowerPickUp : MonoBehaviour
 {
     [SerializeField] private string pickupTag = "fire_flower";
     [SerializeField] private string animationTrigger = "ThrowFireball";
+    [SerializeField] private AThrowable throwable;
     [SerializeField] private AudioClip pickupSound;
     [SerializeField] private AudioClip removeSound;
 
@@ -11,7 +12,7 @@ public class FireFlowerPickUp : MonoBehaviour
     {
         if (other.CompareTag("Player") && other.isTrigger)
         {
-            other.GetComponentInParent<PlayerPowerUpsHandler>().EquipPowerUp(pickupTag, animationTrigger, pickupSound, removeSound);
+            other.GetComponentInParent<PlayerPowerUpsHandler>().EquipPowerUp(pickupTag, animationTrigger, throwable, pickupSound, removeSound);
             Destroy(gameObject);
         }
     }

@@ -5,20 +5,22 @@ public class PlayerPowerUpsHandler : MonoBehaviour
     public bool HasPowerUp { get; private set; } = false;
     public string CurrentPowerUpTag { get; private set; } = "";
     public string AnimationTrigger { get; private set; } = "";
+    public AThrowable throwObject;
 
     private AudioClip currentRemoveSound;
 
-    public void EquipPowerUp(string pickupTag, string animationTrigger, AudioClip equipSound, AudioClip removeSound)
+    public void EquipPowerUp(string pickupTag, string animationTrigger, AThrowable throwable, AudioClip equipSound, AudioClip removeSound)
     {
         if (equipSound != null)
         {
             AudioSource.PlayClipAtPoint(equipSound, transform.position, 1.0f);
         }
 
+        HasPowerUp = true;
         CurrentPowerUpTag = pickupTag;
         AnimationTrigger = animationTrigger;
+        throwObject = throwable;
         currentRemoveSound = removeSound;
-        HasPowerUp = true;
     }
 
     public void RemovePowerUp()
@@ -33,6 +35,7 @@ public class PlayerPowerUpsHandler : MonoBehaviour
         HasPowerUp = false;
         CurrentPowerUpTag = "";
         AnimationTrigger = "";
+        throwObject = null;
         currentRemoveSound = null;
     }
 }
