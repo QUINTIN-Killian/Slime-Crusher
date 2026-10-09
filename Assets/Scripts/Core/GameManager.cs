@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         playerHealth.Died += HandlePlayerDied;
+        CheckpointFlag.Reached += HandleCheckpointReached;
         winFlag.Reached += HandleFlagReached;
     }
 
@@ -31,12 +32,18 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         playerHealth.Died -= HandlePlayerDied;
+        CheckpointFlag.Reached -= HandleCheckpointReached;
         winFlag.Reached -= HandleFlagReached;
     }
 
     private void HandlePlayerDied()
     {
         EndGame(false);
+    }
+
+    private void HandleCheckpointReached(Vector3 position)
+    {
+        respawnPosition = position;
     }
 
     private void HandleFlagReached()
@@ -50,7 +57,16 @@ public class GameManager : MonoBehaviour
     {
         if (state != GameState.Playing) return;
 
-        state = hasWon ? GameState.Won : GameState.Lost;
+        if (hasWon)
+        {
+            respawnPosition = null;
+            state = GameState.Won;
+        }
+        else
+        {
+            state = GameState.Lost;
+        }
+
         // Time.timeScale = 0f;
         GameEnded?.Invoke(hasWon);
     }
