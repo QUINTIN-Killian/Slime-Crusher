@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
     public event Action<bool> GameEnded;
 
     private GameState state = GameState.Playing;
+    private static Vector3? respawnPosition;
 
+    [SerializeField] private Transform player;
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private WinFlag winFlag;
 
@@ -16,6 +18,14 @@ public class GameManager : MonoBehaviour
     {
         playerHealth.Died += HandlePlayerDied;
         winFlag.Reached += HandleFlagReached;
+    }
+
+    private void Start()
+    {
+        if (respawnPosition.HasValue)
+        {
+            player.position = respawnPosition.Value;
+        }
     }
 
     private void OnDisable()
@@ -41,7 +51,7 @@ public class GameManager : MonoBehaviour
         if (state != GameState.Playing) return;
 
         state = hasWon ? GameState.Won : GameState.Lost;
-        Time.timeScale = 0f;
+        // Time.timeScale = 0f;
         GameEnded?.Invoke(hasWon);
     }
 }
