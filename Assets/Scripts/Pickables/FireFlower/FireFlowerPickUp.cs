@@ -3,6 +3,7 @@ using UnityEngine;
 public class FireFlowerPickUp : MonoBehaviour
 {
     [SerializeField] private string pickupTag = "fire_flower";
+    [SerializeField] private string animationTrigger = "ThrowFireball";
     [SerializeField] private AudioClip pickupSound;
     [SerializeField] private AudioClip removeSound;
 
@@ -10,7 +11,7 @@ public class FireFlowerPickUp : MonoBehaviour
     {
         if (other.CompareTag("Player") && other.isTrigger)
         {
-            other.GetComponentInParent<PlayerPowerUpsHandler>().EquipPowerUp(pickupTag, pickupSound, removeSound);
+            other.GetComponentInParent<PlayerPowerUpsHandler>().EquipPowerUp(pickupTag, animationTrigger, pickupSound, removeSound);
             Destroy(gameObject);
         }
     }

@@ -13,24 +13,27 @@ public class PlayerMovement : MonoBehaviour
     {
         public float Horizontal;
         public bool JumpRequested;
+        public bool UseRequested;
     }
 
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private LayerMask groundLayers;
+    [SerializeField] private AudioClip jumpSound;
     [SerializeField] private float speed = 7.0f;
     [SerializeField] private float jumpForce = 10.0f;
     [SerializeField] private float scaleMultiplier = 1.2f;
-    [SerializeField] private LayerMask groundLayers;
-    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private int maxFireBalls = 2;
 
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer spriteRenderer;
     private ContactFilter2D groundFilter;
-    private PlayerPowerUpsHandler playerPickup;
+    private PlayerPowerUpsHandler playerPowerUp;
     private PlayerInputs inputs;
     private bool frozen = false;
     private Vector3 initialScale;
     private Vector3 powerUpScale;
+    private int fireBalls = 0;
 
     private void OnEnable()
     {
@@ -47,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        playerPickup = GetComponent<PlayerPowerUpsHandler>();
+        playerPowerUp = GetComponent<PlayerPowerUpsHandler>();
 
         groundFilter = new ContactFilter2D();
         groundFilter.SetLayerMask(groundLayers);
@@ -75,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
 
         HandleHorizontalMovement(ref velocity);
         HandleJump(ref velocity);
+        HandleUse();
         rb.linearVelocity = velocity;
     }
 
@@ -92,6 +96,11 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             inputs.JumpRequested = true;
+        }
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            inputs.UseRequested = true;
         }
     }
 
@@ -126,6 +135,16 @@ public class PlayerMovement : MonoBehaviour
         inputs.JumpRequested = false;
     }
 
+    private void HandleUse()
+    {
+        if (inputs.UseRequested && HasPowerUp())
+        {
+            anim.SetTrigger(Animator.StringToHash(playerPowerUp.AnimationTrigger));
+        }
+
+        inputs.UseRequested = false;
+    }
+
     private bool IsGrounded()
     {
         return rb.IsTouching(groundFilter);
@@ -138,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool HasPowerUp()
     {
-        return playerPickup.HasPowerUp;
+        return playerPowerUp.HasPowerUp;
     }
 
     private bool IsInitialScale()
