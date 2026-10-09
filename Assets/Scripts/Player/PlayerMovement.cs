@@ -9,6 +9,12 @@ public class PlayerMovement : MonoBehaviour
     private static readonly int SpeedHash = Animator.StringToHash("Speed");
     private static readonly int JumpHash = Animator.StringToHash("Jump");
 
+    private struct PlayerInputs
+    {
+        public float Horizontal;
+        public bool JumpRequested;
+    }
+
     [SerializeField] private GameManager gameManager;
     [SerializeField] private float speed = 7.0f;
     [SerializeField] private float jumpForce = 10.0f;
@@ -21,8 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private ContactFilter2D groundFilter;
     private PlayerPowerUpsHandler playerPickup;
-    private float horizontalInput;
-    private bool jumpRequested = false;
+    private PlayerInputs inputs;
     private bool frozen = false;
     private Vector3 initialScale;
     private Vector3 powerUpScale;
@@ -57,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        ReadInputs();
+        if (!frozen) ReadInputs();
         UpdateAnimations();
 
         if (HasPowerUp() && IsInitialScale()) transform.localScale = powerUpScale;
@@ -76,34 +81,29 @@ public class PlayerMovement : MonoBehaviour
     public void SetFrozen(bool frozen)
     {
         this.frozen = frozen;
+
+        if (frozen) inputs = default;
     }
 
     private void ReadInputs()
     {
-        if (frozen)
-        {
-            horizontalInput = 0f;
-            jumpRequested = false;
-            return;
-        }
-
-        horizontalInput = Input.GetAxisRaw("Horizontal");
+        inputs.Horizontal = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonDown("Jump"))
         {
-            jumpRequested = true;
+            inputs.JumpRequested = true;
         }
     }
 
     private void UpdateAnimations()
     {
-        anim.SetFloat(SpeedHash, Mathf.Abs(horizontalInput));
+        anim.SetFloat(SpeedHash, Mathf.Abs(inputs.Horizontal));
 
-        if (horizontalInput > 0)
+        if (inputs.Horizontal > 0)
         {
             spriteRenderer.flipX = false;
         }
-        else if (horizontalInput < 0)
+        else if (inputs.Horizontal < 0)
         {
             spriteRenderer.flipX = true;
         }
@@ -111,19 +111,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleHorizontalMovement(ref Vector2 velocity)
     {
-        velocity.x = horizontalInput * speed;
+        velocity.x = inputs.Horizontal * speed;
     }
 
     private void HandleJump(ref Vector2 velocity)
     {
-        if (jumpRequested && IsGrounded())
+        if (inputs.JumpRequested && IsGrounded())
         {
             AudioSource.PlayClipAtPoint(jumpSound, transform.position, 1.0f);
             anim.SetTrigger(JumpHash);
             velocity.y = jumpForce;
         }
 
-        jumpRequested = false;
+        inputs.JumpRequested = false;
     }
 
     private bool IsGrounded()
