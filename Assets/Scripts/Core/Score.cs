@@ -5,10 +5,11 @@ public class Score : MonoBehaviour
 {
     public static event Action<int> ScoreInfo;
 
-    [SerializeField] private int score;
+    [SerializeField] private int score = 0;
 
-    public void DeclareScore()
+    public void DeclareScore(int? scoreOverride = null)
     {
-        ScoreInfo?.Invoke(score);
+        if (scoreOverride.HasValue) ScoreInfo?.Invoke(scoreOverride.Value);
+        else ScoreInfo?.Invoke(score);
     }
 }
