@@ -13,14 +13,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private WinFlag winFlag;
+    [SerializeField] private BossDeath boss;
     [SerializeField] private Timer timer;
 
     private void OnEnable()
     {
         playerHealth.Died += HandlePlayerDied;
         CheckpointFlag.Reached += HandleCheckpointReached;
-        winFlag.Reached += HandleFlagReached;
-        timer.TimerEnd += HandleTimerEnded;
+        winFlag.Reached += Win;
+        boss.BossKilled += Win;
+        timer.TimerEnd += Lose;
     }
 
     private void Start()
@@ -35,8 +37,9 @@ public class GameManager : MonoBehaviour
     {
         playerHealth.Died -= HandlePlayerDied;
         CheckpointFlag.Reached -= HandleCheckpointReached;
-        winFlag.Reached -= HandleFlagReached;
-        timer.TimerEnd -= HandleTimerEnded;
+        winFlag.Reached -= Win;
+        boss.BossKilled -= Win;
+        timer.TimerEnd -= Lose;
     }
 
     private void HandlePlayerDied()
@@ -49,14 +52,14 @@ public class GameManager : MonoBehaviour
         respawnPosition = position;
     }
 
-    private void HandleFlagReached()
+    private void Win()
     {
         if (playerHealth.IsDead) return;
 
         EndGame(true);
     }
 
-    private void HandleTimerEnded()
+    private void Lose()
     {
         if (playerHealth.IsDead) return;
 
