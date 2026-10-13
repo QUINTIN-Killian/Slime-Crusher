@@ -8,6 +8,7 @@ public class Patrol : MonoBehaviour
     [SerializeField] private float wallCheckDistance = 0.1f;
     [SerializeField] private float groundCheckDistance = 0.2f;
     [SerializeField] private float ledgeCheckOffset = 0.2f;
+    [SerializeField] private bool turnAtLedges = true;
     [SerializeField] private LayerMask nonBlockingLayers;
     [SerializeField] private Transform rotatePointLeft = null;
     [SerializeField] private Transform rotatePointRight = null;
@@ -32,7 +33,7 @@ public class Patrol : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (IsBlocked() || (IsGrounded() && IsLedgeAhead()) || IsRotatePointReached())
+        if (IsBlocked() || (turnAtLedges && IsGrounded() && IsLedgeAhead()) || IsRotatePointReached())
         {
             FlipDirection();
         }

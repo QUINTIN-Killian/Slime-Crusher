@@ -1279,6 +1279,7 @@ Transform:
   m_Children:
   - {fileID: 1793844720}
   - {fileID: 134118930}
+  - {fileID: 649623725}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &500482708
@@ -1588,6 +1589,37 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!1 &537517983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 537517984}
+  m_Layer: 0
+  m_Name: Rotate Point Left
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &537517984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537517983}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 23.09, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1253272484}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &574585703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,6 +1835,39 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 133183363}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &649623724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 649623725}
+  m_Layer: 0
+  m_Name: Flying Green Slimes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &649623725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649623724}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1253272484}
+  - {fileID: 1907528246}
+  m_Father: {fileID: 391733185}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &662748672 stripped
 Transform:
@@ -2485,6 +2550,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1026054076}
   m_CullTransparentMesh: 1
+--- !u!1 &1097010997
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1097010998}
+  m_Layer: 0
+  m_Name: Rotate Point Right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1097010998
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097010997}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 110.29, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1907528246}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1099026214
 GameObject:
   m_ObjectHideFlags: 0
@@ -2700,6 +2796,76 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135978623}
   m_CullTransparentMesh: 1
+--- !u!1001 &1145813755
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1907528246}
+    m_Modifications:
+    - target: {fileID: 2115813677772380981, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_Name
+      value: Flying Green Slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060990665722885066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: rotatePointLeft
+      value: 
+      objectReference: {fileID: 1511029775}
+    - target: {fileID: 4060990665722885066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: rotatePointRight
+      value: 
+      objectReference: {fileID: 1097010998}
+    - target: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 106.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b218a562f21b669458915174d40e4af6, type: 3}
+--- !u!4 &1145813756 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+  m_PrefabInstance: {fileID: 1145813755}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1169189317 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7016442538536261008, guid: 124a5a2af52801340a0cefface6a6d43, type: 3}
@@ -2870,6 +3036,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50e59de8eb842804a92e306b98ee1407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!1 &1253272483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1253272484}
+  m_Layer: 0
+  m_Name: Flying Green Slime 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1253272484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253272483}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1892915673}
+  - {fileID: 537517984}
+  - {fileID: 1412850011}
+  m_Father: {fileID: 649623725}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1265522458
 GameObject:
   m_ObjectHideFlags: 0
@@ -2902,6 +3102,68 @@ Transform:
   - {fileID: 750042065}
   - {fileID: 574585704}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1412850010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1412850011}
+  m_Layer: 0
+  m_Name: Rotate Point Right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1412850011
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412850010}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 40.05, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1253272484}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1511029774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1511029775}
+  m_Layer: 0
+  m_Name: Rotate Point Left
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1511029775
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511029774}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 98.87, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1907528246}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1534163029
 GameObject:
@@ -3460,6 +3722,76 @@ Transform:
   - {fileID: 1099026216}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1892915672
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1253272484}
+    m_Modifications:
+    - target: {fileID: 2115813677772380981, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_Name
+      value: Flying Green Slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060990665722885066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: rotatePointLeft
+      value: 
+      objectReference: {fileID: 537517984}
+    - target: {fileID: 4060990665722885066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: rotatePointRight
+      value: 
+      objectReference: {fileID: 1412850011}
+    - target: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 31.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b218a562f21b669458915174d40e4af6, type: 3}
+--- !u!4 &1892915673 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7678587474694918066, guid: b218a562f21b669458915174d40e4af6, type: 3}
+  m_PrefabInstance: {fileID: 1892915672}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1906514238
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3538,6 +3870,40 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 374663343927698075, guid: 811f08dd460d7314c91f4e2db5fd21fa, type: 3}
   m_PrefabInstance: {fileID: 1906514238}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1907528245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1907528246}
+  m_Layer: 0
+  m_Name: Flying Green Slime 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1907528246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907528245}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1145813756}
+  - {fileID: 1511029775}
+  - {fileID: 1097010998}
+  m_Father: {fileID: 649623725}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1942745007
 GameObject:
   m_ObjectHideFlags: 0
@@ -27054,9 +27420,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3593974654720279237, guid: 133997dbd80aaae4e9ac8cfa6f380039, type: 3}
+      propertyPath: m_GravityScale
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4979899245074069607, guid: 133997dbd80aaae4e9ac8cfa6f380039, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705140266862709442, guid: 133997dbd80aaae4e9ac8cfa6f380039, type: 3}
+      propertyPath: jumpForce
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6705140266862709442, guid: 133997dbd80aaae4e9ac8cfa6f380039, type: 3}
       propertyPath: gameManager
