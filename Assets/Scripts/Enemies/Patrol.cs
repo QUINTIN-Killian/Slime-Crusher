@@ -9,6 +9,8 @@ public class Patrol : MonoBehaviour
     [SerializeField] private float groundCheckDistance = 0.2f;
     [SerializeField] private float ledgeCheckOffset = 0.2f;
     [SerializeField] private LayerMask nonBlockingLayers;
+    [SerializeField] private Transform rotatePointLeft = null;
+    [SerializeField] private Transform rotatePointRight = null;
 
     private Vector2 moveDirection = Vector2.left;
     private Rigidbody2D rb;
@@ -30,7 +32,7 @@ public class Patrol : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (IsBlocked() || (IsGrounded() && IsLedgeAhead()))
+        if (IsBlocked() || (IsGrounded() && IsLedgeAhead()) || IsRotatePointReached())
         {
             FlipDirection();
         }
@@ -62,6 +64,15 @@ public class Patrol : MonoBehaviour
         return !HitsObstacle(origin, Vector2.down, bounds.extents.y + groundCheckDistance);
     }
 
+    private bool IsRotatePointReached()
+    {
+        if (rotatePointLeft != null && IsHeadingLeft() && transform.position.x <= rotatePointLeft.position.x) return true;
+
+        if (rotatePointRight != null && IsHeadingRight() && transform.position.x >= rotatePointRight.position.x) return true;
+
+        return false;
+    }
+
     private bool HitsObstacle(Vector2 origin, Vector2 direction, float distance)
     {
         int count = Physics2D.Raycast(origin, direction, obstaclesFilter, hits, distance);
@@ -84,5 +95,15 @@ public class Patrol : MonoBehaviour
 
         localScale.x *= -1f;
         transform.localScale = localScale;
+    }
+
+    private bool IsHeadingLeft()
+    {
+        return moveDirection.x < 0;
+    }
+
+    private bool IsHeadingRight()
+    {
+        return moveDirection.x > 0;
     }
 }
