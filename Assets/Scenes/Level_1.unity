@@ -867,7 +867,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 101602421272837440, guid: 133997dbd80aaae4e9ac8cfa6f380039, type: 3}
   m_PrefabInstance: {fileID: 2969039726354609868}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2026304185}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fe6512fef7b7c2458a5dae52657cfe2, type: 3}
@@ -4556,6 +4556,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &2026304185 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4979899245074069607, guid: 133997dbd80aaae4e9ac8cfa6f380039, type: 3}
+  m_PrefabInstance: {fileID: 2969039726354609868}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2031725297
 GameObject:
   m_ObjectHideFlags: 0
@@ -27381,8 +27386,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 101602421272837440, guid: 133997dbd80aaae4e9ac8cfa6f380039, type: 3}
+      propertyPath: renderer
+      value: 
+      objectReference: {fileID: 2969039726354609875}
+    - target: {fileID: 101602421272837440, guid: 133997dbd80aaae4e9ac8cfa6f380039, type: 3}
+      propertyPath: hitCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 101602421272837440, guid: 133997dbd80aaae4e9ac8cfa6f380039, type: 3}
       propertyPath: healthPoints
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 101602421272837440, guid: 133997dbd80aaae4e9ac8cfa6f380039, type: 3}
+      propertyPath: blinkInterval
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 101602421272837440, guid: 133997dbd80aaae4e9ac8cfa6f380039, type: 3}
+      propertyPath: blinkingObject
+      value: 
+      objectReference: {fileID: 2026304185}
+    - target: {fileID: 101602421272837440, guid: 133997dbd80aaae4e9ac8cfa6f380039, type: 3}
+      propertyPath: hitBlinkCooldown
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 572844905768825996, guid: 133997dbd80aaae4e9ac8cfa6f380039, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27450,12 +27475,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5903339143505468201, guid: 133997dbd80aaae4e9ac8cfa6f380039, type: 3}
   m_PrefabInstance: {fileID: 2969039726354609868}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2026304185}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e79a3e7b3710d2c4dacf030aaf78971c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoinWallet
+--- !u!212 &2969039726354609875 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4267692218754848630, guid: 133997dbd80aaae4e9ac8cfa6f380039, type: 3}
+  m_PrefabInstance: {fileID: 2969039726354609868}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5510590930577191123
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public abstract class ADamageable : MonoBehaviour
 {
@@ -7,16 +8,27 @@ public abstract class ADamageable : MonoBehaviour
     [SerializeField] protected int healthPoints = 1;
     [SerializeField] protected AudioClip hitSound = null;
     [SerializeField] protected AudioClip deathSound = null;
+    [SerializeField] private float invincibilityDuration = 1.0f;
+    [SerializeField] private float blinkInterval = 0.1f;
+    [SerializeField] private Renderer blinkRenderer;
     [SerializeField] private Behaviour[] disabledOnDeath;
 
+    private Coroutine invincibilityRoutine;
+
     public bool IsDead { get; private set; } = false;
+    public bool IsInvincible => invincibilityRoutine != null;
 
     public void TakeDamage(int amount = 1)
     {
-        if (IsDead) return;
+        if (IsInvincible || IsDead) return;
 
         healthPoints = Mathf.Max(healthPoints - amount, 0);
         ApplyHealthChange();
+
+        if (!IsDead)
+        {
+            invincibilityRoutine = StartCoroutine(InvincibilityRoutine());
+        }
     }
 
     public void Kill()
@@ -32,6 +44,7 @@ public abstract class ADamageable : MonoBehaviour
         if (healthPoints <= 0)
         {
             IsDead = true;
+            StopInvincibility();
             DisableBehaviours();
             SetLayerRecursively(transform, LayerMask.NameToLayer(DeadLayerName));
             Die();
@@ -83,5 +96,48 @@ public abstract class ADamageable : MonoBehaviour
     protected virtual void Die()
     {
         Destroy(gameObject);
+    }
+
+    private IEnumerator InvincibilityRoutine()
+    {
+        float elapsed = 0f;
+
+        while (elapsed < invincibilityDuration)
+        {
+            SetRendererVisible(!IsRendererVisible());
+            yield return new WaitForSeconds(blinkInterval);
+            elapsed += blinkInterval;
+        }
+
+        StopInvincibility();
+    }
+
+    private void StopInvincibility()
+    {
+        if (invincibilityRoutine != null)
+        {
+            StopCoroutine(invincibilityRoutine);
+            invincibilityRoutine = null;
+        }
+
+        SetRendererVisible(true);
+    }
+
+    private bool IsRendererVisible()
+    {
+        return !blinkRenderer || blinkRenderer.enabled;
+    }
+
+    private void SetRendererVisible(bool visible)
+    {
+        if (blinkRenderer)
+        {
+            blinkRenderer.enabled = visible;
+        }
+    }
+
+    private void OnDisable()
+    {
+        StopInvincibility();
     }
 }
