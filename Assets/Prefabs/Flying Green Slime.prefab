@@ -13,10 +13,12 @@ GameObject:
   - component: {fileID: 4736791341789489402}
   - component: {fileID: 6568408391649468981}
   - component: {fileID: 4133546472945710260}
+  - component: {fileID: 5359765299483656488}
   - component: {fileID: 4060990665722885066}
   - component: {fileID: 4714264557996173550}
   - component: {fileID: 65035542186337806}
   - component: {fileID: 572464452618289514}
+  - component: {fileID: 3932156023864567381}
   m_Layer: 0
   m_Name: Flying Green Slime
   m_TagString: Enemy
@@ -195,6 +197,42 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8743651, y: 0.74931073}
   m_EdgeRadius: 0
+--- !u!58 &5359765299483656488
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115813677772380981}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.3}
+  m_Radius: 7
 --- !u!114 &4060990665722885066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,6 +270,11 @@ MonoBehaviour:
   healthPoints: 1
   hitSound: {fileID: 8300000, guid: ee59306476be6a24f97a7176e7a6b824, type: 3}
   deathSound: {fileID: 8300000, guid: 8a92a61f3547d8c499bf81da21b272de, type: 3}
+  disabledOnDeath:
+  - {fileID: 4060990665722885066}
+  - {fileID: 3932156023864567381}
+  - {fileID: 2588524069381145529}
+  deathGravityScale: 1
 --- !u!114 &65035542186337806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +287,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9177d9d5420539a44b246a41d967574a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStun
+  disabledWhileStunned:
+  - {fileID: 4060990665722885066}
+  - {fileID: 3932156023864567381}
 --- !u!114 &572464452618289514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +303,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Score
   score: 150
+--- !u!114 &3932156023864567381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115813677772380981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82a0db99d5af60641b243297d84a6f9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  dashSpeed: 8
+  returnSpeed: 3
+  dashTimeout: 3
+  dashCooldown: 1.5
+  arrivalThreshold: 0.05
+  bodyCollider: {fileID: 4133546472945710260}
+  lineOfSightLayers:
+    serializedVersion: 2
+    m_Bits: 192
 --- !u!1 &4642727291936600842
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,9 +2,12 @@ using UnityEngine;
 
 public abstract class ADamageable : MonoBehaviour
 {
+    private const string DeadLayerName = "DeadEntity";
+
     [SerializeField] protected int healthPoints = 1;
     [SerializeField] protected AudioClip hitSound = null;
     [SerializeField] protected AudioClip deathSound = null;
+    [SerializeField] private Behaviour[] disabledOnDeath;
 
     public bool IsDead { get; private set; } = false;
 
@@ -29,6 +32,8 @@ public abstract class ADamageable : MonoBehaviour
         if (healthPoints <= 0)
         {
             IsDead = true;
+            DisableBehaviours();
+            SetLayerRecursively(transform, LayerMask.NameToLayer(DeadLayerName));
             Die();
 
             if (deathSound)
@@ -47,6 +52,24 @@ public abstract class ADamageable : MonoBehaviour
         }
 
         OnHealthChanged();
+    }
+
+    private void DisableBehaviours()
+    {
+        foreach (Behaviour behaviour in disabledOnDeath)
+        {
+            behaviour.enabled = false;
+        }
+    }
+
+    private static void SetLayerRecursively(Transform target, int layer)
+    {
+        target.gameObject.layer = layer;
+
+        foreach (Transform child in target)
+        {
+            SetLayerRecursively(child, layer);
+        }
     }
 
     protected virtual void OnHit()

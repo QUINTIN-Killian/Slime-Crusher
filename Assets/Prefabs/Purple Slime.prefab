@@ -229,7 +229,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -303,6 +303,7 @@ MonoBehaviour:
   wallCheckDistance: 0.1
   groundCheckDistance: 1
   ledgeCheckOffset: 0.1
+  turnAtLedges: 1
   nonBlockingLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -320,9 +321,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707228458c8f9d948bfcfae66f822a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  healthPoints: 10
+  healthPoints: 1
   hitSound: {fileID: 8300000, guid: ee59306476be6a24f97a7176e7a6b824, type: 3}
   deathSound: {fileID: 8300000, guid: 8a92a61f3547d8c499bf81da21b272de, type: 3}
+  disabledOnDeath:
+  - {fileID: 2749143461817986277}
+  - {fileID: 8378009636657719985}
+  deathGravityScale: 1
 --- !u!114 &2065603752990711903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9177d9d5420539a44b246a41d967574a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStun
+  disabledWhileStunned:
+  - {fileID: 2749143461817986277}
 --- !u!114 &4076504267679733931
 MonoBehaviour:
   m_ObjectHideFlags: 0
