@@ -252,7 +252,7 @@ MonoBehaviour:
   turnAtLedges: 0
   nonBlockingLayers:
     serializedVersion: 2
-    m_Bits: 1152
+    m_Bits: 128
   rotatePointLeft: {fileID: 0}
   rotatePointRight: {fileID: 0}
 --- !u!114 &4714264557996173550
@@ -270,9 +270,6 @@ MonoBehaviour:
   healthPoints: 1
   hitSound: {fileID: 8300000, guid: ee59306476be6a24f97a7176e7a6b824, type: 3}
   deathSound: {fileID: 8300000, guid: 8a92a61f3547d8c499bf81da21b272de, type: 3}
-  invincibilityDuration: 1
-  blinkInterval: 0.1
-  blinkRenderer: {fileID: 8059290598037959780}
   disabledOnDeath:
   - {fileID: 4060990665722885066}
   - {fileID: 3932156023864567381}

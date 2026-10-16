@@ -310,10 +310,6 @@ MonoBehaviour:
   healthPoints: 3
   hitSound: {fileID: 8300000, guid: ee59306476be6a24f97a7176e7a6b824, type: 3}
   deathSound: {fileID: 8300000, guid: 8a92a61f3547d8c499bf81da21b272de, type: 3}
-  invincibilityDuration: 1
-  blinkInterval: 0.1
-  blinkRenderer: {fileID: 4267692218754848630}
-  disabledOnDeath: []
 --- !u!114 &5903339143505468201
 MonoBehaviour:
   m_ObjectHideFlags: 0
