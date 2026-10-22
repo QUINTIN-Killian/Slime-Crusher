@@ -13,6 +13,9 @@ public class Patrol : MonoBehaviour
     [SerializeField] private Transform rotatePointLeft = null;
     [SerializeField] private Transform rotatePointRight = null;
 
+    public Transform RotatePointLeft => rotatePointLeft;
+    public Transform RotatePointRight => rotatePointRight;
+
     private Vector2 moveDirection = Vector2.left;
     private Rigidbody2D rb;
     private Collider2D bodyCollider;
@@ -33,7 +36,7 @@ public class Patrol : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (IsBlocked() || (turnAtLedges && IsGrounded() && IsLedgeAhead()) || IsRotatePointReached())
+        if (IsFacingObstacle() || IsFacingLedge() || IsRotatePointReached())
         {
             FlipDirection();
         }
@@ -41,12 +44,12 @@ public class Patrol : MonoBehaviour
         rb.linearVelocity = new Vector2(moveDirection.x * speed, rb.linearVelocityY);
     }
 
-    private bool IsBlocked()
+    public bool IsFacingObstacle(float lookAhead = 0f)
     {
         Bounds bounds = bodyCollider.bounds;
         Vector2 origin = new(bounds.center.x + moveDirection.x * bounds.extents.x, bounds.center.y);
 
-        return HitsObstacle(origin, moveDirection, wallCheckDistance);
+        return HitsObstacle(origin, moveDirection, wallCheckDistance + lookAhead);
     }
 
     private bool IsGrounded()
@@ -57,10 +60,15 @@ public class Patrol : MonoBehaviour
         return HitsObstacle(origin, Vector2.down, bounds.extents.y + groundCheckDistance);
     }
 
-    private bool IsLedgeAhead()
+    public bool IsFacingLedge(float lookAhead = 0f)
+    {
+        return turnAtLedges && IsGrounded() && IsLedgeAhead(lookAhead);
+    }
+
+    private bool IsLedgeAhead(float lookAhead)
     {
         Bounds bounds = bodyCollider.bounds;
-        Vector2 origin = new(bounds.center.x + moveDirection.x * (bounds.extents.x + ledgeCheckOffset), bounds.center.y);
+        Vector2 origin = new(bounds.center.x + moveDirection.x * (bounds.extents.x + ledgeCheckOffset + lookAhead), bounds.center.y);
 
         return !HitsObstacle(origin, Vector2.down, bounds.extents.y + groundCheckDistance);
     }
@@ -86,6 +94,13 @@ public class Patrol : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void FaceDirection(float direction)
+    {
+        if (Mathf.Approximately(direction, 0f) || Mathf.Sign(direction) == Mathf.Sign(moveDirection.x)) return;
+
+        FlipDirection();
     }
 
     private void FlipDirection()
