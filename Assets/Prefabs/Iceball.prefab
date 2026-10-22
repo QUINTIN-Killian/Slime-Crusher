@@ -196,5 +196,6 @@ MonoBehaviour:
   speed: 10
   lifetime: 2
   damage: 0
+  grantsInvincibility: 0
   stunDuration: 1
   impactSound: {fileID: 8300000, guid: a621a475d7dd6fe41b1e49906769f487, type: 3}

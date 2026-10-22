@@ -15,8 +15,9 @@ public class EnemyHealth : ADamageable
     private Rigidbody2D rb;
     private Score score;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         score = GetComponent<Score>();

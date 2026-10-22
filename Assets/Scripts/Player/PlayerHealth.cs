@@ -15,8 +15,9 @@ public class PlayerHealth : ADamageable
     private static readonly int DeathHash = Animator.StringToHash("Death");
     private PlayerMovement playerMovement;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
         playerPickup = GetComponent<PlayerPowerUpsHandler>();

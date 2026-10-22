@@ -9,6 +9,7 @@ public abstract class AThrowable : MonoBehaviour
     [SerializeField] protected float speed = 10.0f;
     [SerializeField] protected float lifetime = 2.0f;
     [SerializeField] protected int damage = 1;
+    [SerializeField] protected bool grantsInvincibility = true;
     [SerializeField] protected float stunDuration = 1.0f;
     [SerializeField] protected AudioClip impactSound;
 
@@ -61,7 +62,7 @@ public abstract class AThrowable : MonoBehaviour
 
         if (target == null) return false;
 
-        target.TakeDamage(damage);
+        target.TakeDamage(damage, grantsInvincibility);
         return true;
     }
 
