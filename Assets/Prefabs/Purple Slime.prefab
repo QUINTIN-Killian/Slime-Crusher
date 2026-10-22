@@ -306,7 +306,7 @@ MonoBehaviour:
   turnAtLedges: 1
   nonBlockingLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1152
   rotatePointLeft: {fileID: 0}
   rotatePointRight: {fileID: 0}
 --- !u!114 &1427501895102406873
