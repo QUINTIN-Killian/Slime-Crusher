@@ -9,7 +9,7 @@ public class BossAttack : MonoBehaviour
 
     [SerializeField] private float chargeWindUpDuration = 0.8f;
     [SerializeField] private float chargeSpeed = 10f;
-    [SerializeField] private float chargeTimeout = 3f;
+    [SerializeField] private float chargeDuration = 3f;
 
     [SerializeField] private Color telegraphColor = Color.red;
     [SerializeField] private float blinkFrequency = 8f;
@@ -86,24 +86,32 @@ public class BossAttack : MonoBehaviour
 
     private void UpdateCharge()
     {
-        float step = chargeSpeed * Time.fixedDeltaTime;
-
-        if (patrol.IsFacingObstacle(step) || patrol.IsFacingLedge(step) || stateTimer >= chargeTimeout)
+        if (stateTimer >= chargeDuration)
         {
             EndCharge();
             return;
         }
 
+        float step = chargeSpeed * Time.fixedDeltaTime;
         float nextX = rb.position.x + chargeDirection * step;
 
-        if (TryGetChargeLimit(out float limitX) && (nextX - limitX) * chargeDirection >= 0f)
+        if (patrol.IsFacingObstacle(step) || patrol.IsFacingLedge(step))
+        {
+            TurnAround();
+        }
+        else if (TryGetChargeLimit(out float limitX) && (nextX - limitX) * chargeDirection >= 0f)
         {
             rb.position = new Vector2(limitX, rb.position.y);
-            EndCharge();
-            return;
+            TurnAround();
         }
 
         rb.linearVelocity = new Vector2(chargeDirection * chargeSpeed, rb.linearVelocityY);
+    }
+
+    private void TurnAround()
+    {
+        chargeDirection = -chargeDirection;
+        patrol.FaceDirection(chargeDirection);
     }
 
     private void EndCharge()

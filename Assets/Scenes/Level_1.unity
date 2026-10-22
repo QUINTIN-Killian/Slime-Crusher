@@ -3968,7 +3968,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1974921582}
-  - component: {fileID: 1974921583}
+  - component: {fileID: 1974921584}
   m_Layer: 0
   m_Name: DetectionZone
   m_TagString: Untagged
@@ -3991,8 +3991,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 374663343883538909}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1974921583
-CircleCollider2D:
+--- !u!61 &1974921584
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4026,7 +4026,17 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 10, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &2015200371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27709,7 +27719,7 @@ MonoBehaviour:
   attackCooldown: 2
   chargeWindUpDuration: 0.8
   chargeSpeed: 15
-  chargeTimeout: 3
+  chargeDuration: 3
   telegraphColor: {r: 1, g: 0, b: 0, a: 1}
   blinkFrequency: 8
 --- !u!1660057539 &9223372036854775807
