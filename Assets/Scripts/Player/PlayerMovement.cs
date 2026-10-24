@@ -157,7 +157,6 @@ public class PlayerMovement : MonoBehaviour
         float facing = spriteRenderer.flipX ? -1.0f : 1.0f;
         Vector3 spawnPosition = transform.position + new Vector3(throwOffset.x * facing, throwOffset.y, 0.0f);
         AThrowable throwable = Instantiate(playerPowerUp.throwObject, spawnPosition, Quaternion.identity);
-        Collider2D throwableCollider = throwable.GetComponent<Collider2D>();
 
         activeThrowables++;
         throwable.Destroyed += HandleThrowableDestroyed;
