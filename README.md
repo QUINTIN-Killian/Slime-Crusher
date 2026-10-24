@@ -1,4 +1,4 @@
-# 3DGB-2D-Platformer-2
+# Slime Crusher
 
 A 2D platformer made with Unity.
 
